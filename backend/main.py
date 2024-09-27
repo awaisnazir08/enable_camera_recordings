@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 import time
 from pydantic import BaseModel
 from camera_manager import CameraManager
+# from camera_manager_updated import CameraManager
 
 class RecordingRequest(BaseModel):
     filename: str
@@ -104,7 +105,7 @@ app.add_middleware(
 async def video_feed(camera_index: int):
     if camera_index not in camera_indices:
         raise HTTPException(status_code=404, detail="Camera not found.")
-    return StreamingResponse(generate_frames(camera_index), media_type="multipart/x-mixed-replace; boundary=frame")
+    return StreamingResponse(camera_manager.get_camera_stream(camera_index), media_type="multipart/x-mixed-replace; boundary=frame")
 
 # Entry point for the frontend
 @app.get("/frontend/index.html")
@@ -140,8 +141,6 @@ async def get_static_file(file_name: str):
 async def start_recording(request: RecordingRequest):
     filename = request.filename
     record_local = request.record_local
-    # print(filename)
-    # print(record_local)
     # Assuming camera_manager is a global instance of CameraManager
     camera_manager.start_recording(filename, record_local)
     return {"status": "Recording started"}
