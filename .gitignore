@@ -8,3 +8,5 @@ backend/__pycache__
 backend/recordings/20240927/test_recording_cam0_223133.avi
 backend/__pycache__/main.cpython-311.pyc
 backend/__pycache__/camera_manager.cpython-311.pyc
+backend/recordings/20240928/testrecord_cam0_024425.avi
+backend/recordings/20240928/test_cam0_024647.avi

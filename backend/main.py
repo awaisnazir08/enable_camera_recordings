@@ -87,19 +87,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# # Route to open cameras on application startup
-# @app.on_event("startup")
-# def startup_event():
-#     try:
-#         open_cameras()
-#     except Exception as e:
-#         print(f"Startup error: {e}")
-
-# # Route to close cameras on application shutdown
-# @app.on_event("shutdown")
-# def shutdown_event():
-#     close_cameras()
-
 # Route for video streams
 @app.get("/video_feed/{camera_index}")
 async def video_feed(camera_index: int):
@@ -125,15 +112,6 @@ async def get_static_file(file_name: str):
         return StreamingResponse(open(file_path, "rb"), media_type=media_type)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f"File {file_name} not found.")
-
-# # Route to start recording
-# @app.post("/start_recording")
-# async def start_recording(filename: str, record_local: bool):
-#     # Assuming camera_manager is a global instance of CameraManager
-#     print(filename)
-#     print(record_local)
-#     camera_manager.start_recording(filename, record_local)
-#     return {"status": "Recording started"}
 
 
 # Route to start recording
