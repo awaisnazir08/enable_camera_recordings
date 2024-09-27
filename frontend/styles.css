@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.camera {
+    display: inline-block;
+    margin: 10px;
+}
+
+.camera img {
+    width: 640px;
+    height: 480px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16
+}

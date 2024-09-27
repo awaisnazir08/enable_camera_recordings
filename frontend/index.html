@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Streams</title>
+    <link rel="stylesheet" href="../frontend/styles.css">
+</head>
+<body>
+    <h1>Video Stream Visualization</h1>
+    <div class="container">
+        <div class="camera">
+            <h2>Camera 0</h2>
+            <img src="http://127.0.0.1:8000/video_feed/2" alt="Camera 0" />
+        </div>
+        <div class="camera">
+            <h2>Camera 2</h2>
+            <img src="http://127.0.0.1:8000/video_feed/4" alt="Camera 2" />
+        </div>
+        <div class="camera">
+            <h2>Camera 4</h2>
+            <img src="http://127.0.0.1:8000/video_feed/6" alt="Camera 4" />
+        </div>
+    </div>
+    <input type="text" id="filename" placeholder="Filename" />
+    <label>
+        <input type="checkbox" id="recordLocal"> Record Locally
+    </label>
+    <button id="recordButton" style="background-color: green;">Start Recording</button>
+    <script src="../frontend/scripts.js"></script>
+</body>
+</html>
